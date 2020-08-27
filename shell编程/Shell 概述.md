@@ -8,6 +8,17 @@ Shell是用户与Linux操作系统之间沟通的桥梁。用户可以输入命�
 
 常见的Shell种类：Bourne Shell（/usr/bin/sh或者/bin/sh）、Bourne Again Shell（/bin/bash）、C Shell（/usr/bin/csh）、K Shell（/usr/bin/ksh）、Shell for Root（/sbin/sh）等。最常用的shell是Bash，也就是Bourne Again Shell（/bin/bash），由于易用和免费，Bash在日常工作中被广泛应用，也是大多数Linux系统默认的Shell。
 
+查看Linux支持的Shell 
+
+```shell
+vim /etc/shells
+
+/bin/sh
+/bin/bash
+/usr/bin/sh
+/usr/bin/bash
+```
+
 ## 第一个Shell程序
 
 ```shell
@@ -20,6 +31,6 @@ Shell是用户与Linux操作系统之间沟通的桥梁。用户可以输入命�
 #在/tmp目录下新建20200827目录
 mkdir -p /tmp/20200827
 #打印一行信息
-echo "Hello WOrld."
+echo "Hello World."
 ```
 

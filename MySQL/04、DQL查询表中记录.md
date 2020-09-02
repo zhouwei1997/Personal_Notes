@@ -123,7 +123,93 @@ select distinct address from student;
    SELECT * FROM student WHERE english IS NULL;
    -- 查询英语成绩不为null
    SELECT * FROM student WHERE english  IS NOT NULL;
+   -- 查询姓马的
+   select * from student where name like '马%';
+   -- 查询第二个字是化的人
+   select * from student where name like '_马%';
    ```
 
    
+
+## 排序查询
+
+1. 语法：order by 子句
+
+   ```mysql
+   order by 排序字段1 排序方式1,排序字段2 排序方式2 ……
+   ```
+
+2. 排序方式
+
+   1. ASC：升序，默认的排序方式
+   2. DESC：降序
+
+   ```sql
+   -- 按照数学成绩排名，如果数学成绩一样，则按照英语成绩排名
+   SELECT * FROM student ORDER BY math ASC，English ASC;
+   ```
+
+3. 注意事项：
+
+   1. 如果有多个排序条件，则当前边的条件值一样时，才会判断第二条件
+
+## 聚合查询
+
+将一列数据作为一个整体，进行纵向计算
+
+1. count：计算个数
+
+   1. 一般选择费控的列：主键
+   2. count(*)
+
+2. max：计算最大值
+
+3. min：计算最小值
+
+4. sum：求和
+
+5. avg：计算平均值
+
+   ```mysql
+   select count(name) from student;
+   
+   select count(ifnull(english,0)) from student;
+   ```
+
+6. 注意事项
+
+   1. 聚合函数的计算会排除null值
+
+## 分组查询
+
+1. 语法：group by 分组字段
+
+   ```sql
+   -- 性别分组，分别查询男，女同学的平均分
+   select sex,avg(math+english) from student group by sex;
+   
+   -- 按照性别分组，分别查询男，女同学的平均分，人数  要求：分数低于70的人，不参与分组，分组之后，人数要大于2人
+   select sex,avg(math+english),count(id) from student where math>70 group by sex having count(id)>2;
+   ```
+
+2. 注意事项
+
+   1. 分组之后查询的字段：分组字段、聚合函数
+   2. where和having的区别
+      1. where在分组之前进行限定，如果不满足条件，则不参与分组。having在分组之后进行限定，如果不满足结果，则不会被查询出来
+      2. where后不可以跟聚合函数，having可以进行聚合函数判断
+
+## 分页查询
+
+
+
+1. 语法：limit 开始的索引，每页查询的条数
+
+   ```mysql
+   -- 每页显示3条记录
+   select * from student limit 0,3;-- 第一页
+   select * from student limit 3,3;-- 第二页
+   ```
+
+2. 公式：开始的索引 = （当前的页码 - 1）* 每页显示的条数
 

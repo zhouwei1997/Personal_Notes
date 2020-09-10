@@ -1,6 +1,6 @@
 # CSS概述
 
-### 概念
+## 概念
 
 CSS：Cascading Style Sheets 层叠样式表
 
@@ -70,8 +70,11 @@ CSS：Cascading Style Sheets 层叠样式表
 ```
 
 1. 选择器：筛选具有相似特征的元素
+
 2. 注意：
+
    1. 每一对属性需要使用`;`隔开，最后一对属性可以不加
-   2. 
+
+      
 
 ​      

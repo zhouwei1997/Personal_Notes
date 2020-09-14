@@ -35,7 +35,7 @@ public class JDBCUtils {
             url = pro.getProperty("url");
             user = pro.getProperty("user");
             password = pro.getProperty("password");
-            driver = pro.getProperty("driver");
+           // driver = pro.getProperty("driver");
         } catch (IOException e) {
             e.printStackTrace();
         }

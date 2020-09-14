@@ -83,6 +83,20 @@
 
 5. PreparedStatement：预处理对象
 
+   1. 使用PreparedStatement解决SQL注入的问题
+   2. 预编译SQL，使用？作为占位符
+   3. 步骤：
+      1. 导入驱动jar包
+      2. 注册驱动
+      3. 获取数据库连接对象Connection
+      4. 定义sql
+         1. SQL的参数使用？作为占位符
+      5. 获取执行SQL语句的对象Statement
+      6. 给？赋值
+      7. 执行SQL，接收返回结果
+      8. 处理结果
+      9. 释放资源
+
    
 
    
